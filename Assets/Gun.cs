@@ -10,7 +10,6 @@ public class Gun : MonoBehaviour
     public static int Count;
     public void Fire()
     {
-        GetComponent<AudioSource>().Play();
         var bulletObj = Instantiate(bullet, bulletSpawner.position, bulletSpawner.rotation);
         bulletObj.GetComponent<Rigidbody>().velocity = bulletSpawner.forward * bulletSpeed;
         Destroy(bulletObj, 5);
