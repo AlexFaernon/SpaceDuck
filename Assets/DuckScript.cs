@@ -27,6 +27,7 @@ public class DuckScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet"))
         {
             Destroy(gameObject);
+            Destroy(collision.gameObject);
         }
     }
 }
