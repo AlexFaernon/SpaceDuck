@@ -13,6 +13,7 @@ public class DuckScript : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player").transform;
         rb = GetComponent<Rigidbody>();
+        DuckSpawner.KillDucks.AddListener(Die);
     }
 
     private void Update()
@@ -22,12 +23,28 @@ public class DuckScript : MonoBehaviour
         rb.velocity = direction * speed;
     }
 
+    private void Die()
+    {
+        Destroy(gameObject);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
             Destroy(gameObject);
             Destroy(collision.gameObject);
+            return;
         }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            GameManager.GameOver();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        DuckSpawner.KillDucks.RemoveListener(Die);
     }
 }
