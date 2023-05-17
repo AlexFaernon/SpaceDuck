@@ -16,11 +16,18 @@ public class DuckScript : MonoBehaviour
         DuckSpawner.KillDucks.AddListener(Die);
     }
 
+
     private void Update()
     {
         var direction = (player.position - transform.position).normalized;
         transform.up = direction;
-        rb.velocity = direction * speed;
+        var ducksAnger = ScoreCounter.killCount / 3;
+        var actualSpeed = speed;
+        if (ducksAnger > 5)
+        {
+            actualSpeed += (ducksAnger - 5) * 1;
+        }
+        rb.velocity = direction * actualSpeed;
     }
 
     private void Die()
@@ -32,6 +39,7 @@ public class DuckScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
+            ScoreCounter.killCount++;
             Destroy(gameObject);
             Destroy(collision.gameObject);
             return;
@@ -40,6 +48,7 @@ public class DuckScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             GameManager.GameOver();
+            Debug.Log("Killed by duck");
         }
     }
 

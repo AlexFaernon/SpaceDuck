@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8387018664849571243}
   - component: {fileID: -4328989398510593771}
   - component: {fileID: -2969254278928553419}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Duck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,17 +28,17 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 843906824677660488}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 18.08, y: 1.4803536, z: 14.9}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2277533105456077495}
   - {fileID: 549106427482418026}
   - {fileID: 5021869410686743512}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!33 &3815188346970526108
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 65d0e5e785511a6409f6ac81924b5f79, type: 2}
+  - {fileID: 2100000, guid: 7721020ac8dd5f14b9b3a9107a1d3396, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 373614355252656427}
   - component: {fileID: 4483039249669302949}
   - component: {fileID: 8772641945244387875}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 3165136504840223348}
   - component: {fileID: 7205048858599783063}
   - component: {fileID: 223722481331029156}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +292,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 65d0e5e785511a6409f6ac81924b5f79, type: 2}
+  - {fileID: 2100000, guid: 457e5dc66e999914792dc349188da2fa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -339,7 +339,7 @@ GameObject:
   - component: {fileID: 8510406091297169317}
   - component: {fileID: 4835976621368452150}
   - component: {fileID: 6646760685371870773}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Beak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +389,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 65d0e5e785511a6409f6ac81924b5f79, type: 2}
+  - {fileID: 2100000, guid: 743799bc90aa3bd4785534db4fed1294, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 8298622572672972527}
   - component: {fileID: 5586771136247458523}
   - component: {fileID: 4605458438687681424}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -486,7 +486,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 65d0e5e785511a6409f6ac81924b5f79, type: 2}
+  - {fileID: 2100000, guid: 96b821f02aad5684dba980750d6b9e11, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

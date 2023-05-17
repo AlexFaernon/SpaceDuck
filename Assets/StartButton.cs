@@ -7,24 +7,12 @@ using UnityEngine.UI;
 
 public class StartButton : MonoBehaviour
 {
-    private TMP_Text _text;
-    private void Awake()
+    private void OnCollisionEnter(Collision other)
     {
-        GetComponent<Button>().onClick.AddListener(OnClick);
-        _text = GetComponentInChildren<TMP_Text>();
-    }
+        if (!other.gameObject.CompareTag("Bullet")) return;
 
-    private void OnClick()
-    {
-        if (DuckSpawner.IsSpawning)
-        {
-            GameManager.GameOver();
-            _text.text = "Start";
-        }
-        else
-        {
-            GameManager.StartGame();
-            _text.text = "Stop";
-        }
+        Destroy(other.gameObject);
+        GameManager.StartGame();
+        transform.parent.gameObject.SetActive(false);
     }
 }

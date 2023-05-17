@@ -9,11 +9,11 @@ public class DuckSpawner : MonoBehaviour
 {
     [SerializeField] private float firstSpawnDelay;
     [SerializeField] private float spawnInterval;
-    [SerializeField] private float spawnRadius;
+    public float spawnRadius;
     [SerializeField] private float deadZone;
     [SerializeField] private GameObject duck;
     private static DuckSpawner _duckSpawner;
-    public static UnityEvent KillDucks;
+    public static UnityEvent KillDucks = new();
 
     private static bool _isSpawning;
     public static bool IsSpawning
@@ -25,10 +25,12 @@ public class DuckSpawner : MonoBehaviour
             if (value)
             {
                 _duckSpawner.StartCoroutine(_duckSpawner.WaitToSpawn());
+                ScoreCounter.killCount = 0;
             }
             else
             {
                 KillDucks.Invoke();
+                Debug.Log("Stop");
                 _duckSpawner.StopAllCoroutines();
             }
         }
@@ -36,7 +38,6 @@ public class DuckSpawner : MonoBehaviour
 
     private void Awake()
     {
-        StartCoroutine(WaitToSpawn());
         _duckSpawner = this;
     }
 
@@ -50,12 +51,12 @@ public class DuckSpawner : MonoBehaviour
     private IEnumerator SpawnDucks()
     {
         var coord = Random.insideUnitCircle * spawnRadius;
-        coord += coord.normalized * deadZone;
-        var pos = new Vector3(coord.x, transform.position.y, coord.y);
+        var pos = new Vector3(coord.x + transform.position.x, transform.position.y, coord.y + transform.position.z);
         Instantiate(duck, pos, Quaternion.identity);
         
-        
-        yield return new WaitForSeconds(spawnInterval);
+        var spawnDelay = Math.Clamp(spawnInterval - ScoreCounter.killCount / 3, 1, 10);
+        Debug.Log(spawnDelay);
+        yield return new WaitForSeconds(spawnDelay);
         StartCoroutine(SpawnDucks());
     }
 }
