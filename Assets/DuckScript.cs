@@ -55,5 +55,17 @@ public class DuckScript : MonoBehaviour
     private void OnDestroy()
     {
         DuckSpawner.KillDucks.RemoveListener(Die);
+        var list = new List<Rigidbody>();
+        foreach (Transform child in transform)
+        {
+            list.Add(child.gameObject.AddComponent<Rigidbody>());
+        }
+        transform.DetachChildren();
+        foreach (var rb in list)
+        {
+            rb.AddForce(UnityEngine.Random.onUnitSphere * 10, ForceMode.VelocityChange);
+            rb.AddTorque(UnityEngine.Random.onUnitSphere * 5, ForceMode.VelocityChange);
+            Destroy(rb.gameObject, 5);
+        }
     }
 }

@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     public static void GameOver()
     {
-        DuckSpawner.IsSpawning = false;
         canvASS.SetActive(true);
+        DuckSpawner.IsSpawning = false;
     }
 }

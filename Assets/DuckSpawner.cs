@@ -12,9 +12,10 @@ public class DuckSpawner : MonoBehaviour
     public float spawnRadius;
     [SerializeField] private float deadZone;
     [SerializeField] private GameObject duck;
+    [SerializeField] private AudioSource bgMusic;
     private static DuckSpawner _duckSpawner;
     public static UnityEvent KillDucks = new();
-
+    private static AudioSource staticMusic;
     private static bool _isSpawning;
     public static bool IsSpawning
     {
@@ -26,12 +27,14 @@ public class DuckSpawner : MonoBehaviour
             {
                 _duckSpawner.StartCoroutine(_duckSpawner.WaitToSpawn());
                 ScoreCounter.killCount = 0;
+                staticMusic.Play();
             }
             else
             {
                 KillDucks.Invoke();
                 Debug.Log("Stop");
                 _duckSpawner.StopAllCoroutines();
+                staticMusic.Stop();
             }
         }
     }
@@ -39,6 +42,7 @@ public class DuckSpawner : MonoBehaviour
     private void Awake()
     {
         _duckSpawner = this;
+        staticMusic = bgMusic;
     }
 
     private IEnumerator WaitToSpawn()
